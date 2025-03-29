@@ -10,6 +10,7 @@ A customizable mining game inspired by Stake.com. This game allows players to be
 - Game history and stats tracking
 - Responsive design that works on desktop and mobile
 - Dashboard with game statistics
+- Sound effects for game actions (diamond discovery, bombs, and winning)
 
 ## How to Play
 
