@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Jua Mining Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A customizable mining game inspired by Stake.com. This game allows players to bet virtual currency on a grid-based game where they click to reveal safe tiles while avoiding hidden mines.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Interactive mining grid with animated elements
+- Customizable bet amounts and mine counts
+- Real-time multiplier calculation
+- Game history and stats tracking
+- Responsive design that works on desktop and mobile
+- Dashboard with game statistics
 
-### `npm start`
+## How to Play
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Select your bet amount and how many mines to place on the grid
+2. Click "Start Game" to begin playing
+3. Click tiles to reveal them - green tiles are safe, red tiles are mines
+4. Cash out at any time to collect your winnings based on the current multiplier
+5. The more tiles you successfully reveal, the higher your multiplier goes
+6. Hit a mine and you lose your bet!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation and Setup
 
-### `npm test`
+1. Clone this repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- React with TypeScript
+- Tailwind CSS for styling
+- Framer Motion for animations
+- React Router for navigation
+- React Icons for UI elements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Enhancements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- User authentication and persistent balance
+- Additional game modes
+- Provably fair game mechanics
+- Social features
+- Leaderboards and achievements
+- Additional customization options
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is created for educational purposes.

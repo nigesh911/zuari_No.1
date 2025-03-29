@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+/* Additional custom styles can be added here */
+
+/* Reload animation */
+.reloading {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.reloading:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #3b82f6;
+  animation: reload-progress 0.5s ease-in-out;
+  z-index: 9999;
+}
+
+@keyframes reload-progress {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}

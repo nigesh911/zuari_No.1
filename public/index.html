@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Jua Mining Game - A gambling style mining game"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -24,7 +24,79 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <!-- Prevent browser refresh with navigation buttons -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+    <title>Jua Mining Game</title>
+    
+    <script>
+      // Intercept browser refresh
+      (function() {
+        // Store original methods
+        const originalHistoryPushState = history.pushState;
+        const originalHistoryReplaceState = history.replaceState;
+        
+        // Override history methods to intercept navigation
+        history.pushState = function() {
+          // Call original function
+          const result = originalHistoryPushState.apply(this, arguments);
+          
+          // Dispatch custom event
+          window.dispatchEvent(new Event('pushstate'));
+          window.dispatchEvent(new Event('locationchange'));
+          
+          return result;
+        };
+        
+        history.replaceState = function() {
+          // Call original function
+          const result = originalHistoryReplaceState.apply(this, arguments);
+          
+          // Dispatch custom event
+          window.dispatchEvent(new Event('replacestate'));
+          window.dispatchEvent(new Event('locationchange'));
+          
+          return result;
+        };
+        
+        // Listen for popstate events
+        window.addEventListener('popstate', function() {
+          window.dispatchEvent(new Event('locationchange'));
+        });
+        
+        // Prevent accidental navigation/refreshes
+        window.onbeforeunload = function(e) {
+          // Cancel the event
+          e.preventDefault();
+          
+          // Trigger fake reload animation
+          document.dispatchEvent(new CustomEvent('fakereload'));
+          
+          // Chrome requires returnValue to be set
+          e.returnValue = 'Are you sure you want to leave?';
+        };
+        
+        // Create a proxy for performance.navigation.type
+        // This is used to detect if the page is being reloaded
+        try {
+          if (window.performance && window.performance.navigation) {
+            Object.defineProperty(window.performance.navigation, 'type', {
+              get: function() {
+                // Simulate the reload animation when detected
+                setTimeout(function() {
+                  document.dispatchEvent(new CustomEvent('fakereload'));
+                }, 0);
+                return 0; // Return TYPE_NAVIGATE instead of TYPE_RELOAD (1)
+              }
+            });
+          }
+        } catch (e) {
+          console.log('Could not override performance.navigation.type', e);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
